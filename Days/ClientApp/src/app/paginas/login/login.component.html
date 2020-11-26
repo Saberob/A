@@ -1,0 +1,24 @@
+
+
+
+<div class="container">
+  <h2>login</h2>
+  <form>
+    <input [(ngModel)]="email" type="text" class="email" placeholder="Correo Electrónico">
+    <br />
+    <input [(ngModel)]="password" type="text" class="pwd" placeholder="Contraseña">
+  </form>
+  {{email}}/{{password}}
+  <a href="#" class="link">
+    ¿Olvidaste tu contraseña?
+  </a>
+  <br />
+
+  <button class="signin">
+    <span>Entrar</span>
+  </button>
+  <button class="register" routerLink="/registration">
+    <span>Registrate</span>
+  </button>
+</div>
+
