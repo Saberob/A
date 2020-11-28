@@ -1,23 +1,21 @@
-
-
-
+{{email}}{{password}}{{confirmpassword}}{{description}}{{day}}{{month}}{{year}}
 <div class="container">
   <h2>Registro</h2>
-  <form>
-    <input type="text" class="email" placeholder="Correo Electrónico">
-    <br />
-    <input type="password" class="pwd" placeholder="Contraseña">
-    <br />
-    <input type="text" class="pwd" placeholder="Confirmar Contraseña">
-    <br />
-    <input type="text" class="email" placeholder="Agrega una pequeña descripción">
-    <br />
-    <input type="text" class="email" placeholder="Día de Nacimiento (Ej: 19)">
-    <br />
-    <input type="text" class="email" placeholder="Mes de Nacimiento (Ej: 06)">
-    <br />
-    <input type="text" class="email" placeholder="Año de Nacimiento (Ej: 2001)">
-  </form>
+
+  <input [(ngModel)]="email" type="text" class="email" placeholder="Correo Electrónico">
+  <br />
+  <input [(ngModel)]="password" type="password" class="pwd" placeholder="Contraseña">
+  <br />
+  <input [(ngModel)]="confirmpassword" type="password" class="pwd" placeholder="Confirmar Contraseña">
+  <br />
+  <input [(ngModel)]="description" type="text" class="email" placeholder="Agrega una pequeña descripción">
+  <br />
+  <input [(ngModel)]="day" type="text" class="email" placeholder="Día de Nacimiento (Ej: 19)">
+  <br />
+  <input [(ngModel)]="month" type="text" class="email" placeholder="Mes de Nacimiento (Ej: 06)">
+  <br />
+  <input [(ngModel)]="year" type="text" class="email" placeholder="Año de Nacimiento (Ej: 2001)">
+
   <a href="#" class="link">
     ¿Olvidaste tu contraseña?
   </a>

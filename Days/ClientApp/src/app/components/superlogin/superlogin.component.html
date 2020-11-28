@@ -1,11 +1,11 @@
-{{email}}{{password}}
 <div class="container">
   <h2>login</h2>
 
-  <input [(ngModel)]="email" type="text" class="email" placeholder="Correo Electrónico">
-  <br />
-  <input [(ngModel)]="password" type="text" class="pwd" placeholder="Contraseña">
+    <input [(ngModel)]="user.email" type="text" class="email" >
+    <br />
+    <input [(ngModel)]="user.password" type="text" class="pwd" placeholder="Contraseña">
 
+  {{user.email}}/{{user.password}}
   <a href="#" class="link">
     ¿Olvidaste tu contraseña?
   </a>
@@ -18,4 +18,3 @@
     <span>Registrate</span>
   </button>
 </div>
-

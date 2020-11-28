@@ -7,10 +7,14 @@ import { Component } from '@angular/core';
 })
 
 export class RegistrationComponent {
-  public nombre = "Leo"
-  email;
-  password;
-  confirmPassword;
+
+  email: string
+  password: string
+  confirmpassword: string
+  description: string
+  day: number
+  month: number
+  year: number
 
 
 

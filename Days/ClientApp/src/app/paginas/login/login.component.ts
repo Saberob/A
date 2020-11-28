@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+
 
 @Component({
   selector: 'login-app',
@@ -7,14 +7,19 @@ import { FormsModule } from '@angular/forms';
   styleUrls:['./login.component.css']
 })
 
+
+
 export class LoginComponent {
   public nombre = "Leo"
 
-  email:string ="leo";
+  email:string;
 
-  password:string="01";
+  password:string;
 
-
+  sumar() {
+    this.email = this.email+1
+  }
+  
 
 
 

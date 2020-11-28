@@ -29,11 +29,23 @@
   <ItemGroup>
     <!-- Don't publish the SPA source files, but do show them in the project files list -->
     <Content Remove="$(SpaRoot)**" />
+    <Content Remove="ClientApp\src\app\new-component\**" />
     <None Remove="$(SpaRoot)**" />
+    <None Remove="ClientApp\src\app\new-component\**" />
     <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Remove="ClientApp\src\app\new-component\**" />
+    <EmbeddedResource Remove="ClientApp\src\app\new-component\**" />
+    <TypeScriptCompile Remove="ClientApp\src\app\new-component\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="ClientApp\src\app\new-component\new-component.component.css" />
+    <None Remove="ClientApp\src\app\new-component\new-component.component.html" />
+    <None Remove="ClientApp\src\app\new-component\new-component.component.spec.ts" />
+    <None Remove="ClientApp\src\app\new-component\new-component.component.ts" />
     <None Remove="ClientApp\src\app\paginas\login\login.component.ts" />
     <None Remove="ClientApp\src\app\paginas\registration\registration.component.ts" />
   </ItemGroup>
