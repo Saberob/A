@@ -11,7 +11,6 @@ import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { LoginComponent } from './paginas/login/login.component';
 import { RegistrationComponent } from './paginas/registration/registration.component';
 import { ComponentsModule } from './components/components.module';
-import { SuperregistrationComponent } from './components/superregistration/superregistration.component';
 import { SuperloginComponent } from './components/superlogin/superlogin.component';
 import { ConsejosComponent } from './components/consejos/consejos.component';
 import { HabitosComponent } from './components/habitos/habitos.component';
@@ -20,6 +19,8 @@ import { SalaschatComponent } from './components/salaschat/salaschat.component';
 import { InicioComponent } from './components/inicio/inicio.component';
 import { PerfilComponent } from './components/perfil/perfil.component';
 
+import { AccountService } from './account/account.service';
+import { AuthInterceptorService } from './services/auth-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,12 @@ import { PerfilComponent } from './components/perfil/perfil.component';
     CounterComponent,
     FetchDataComponent,
     LoginComponent,
-    RegistrationComponent,
+    AccountService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      userClass: AuthInterceptorService,
+      multi: true
+    }
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -44,8 +50,7 @@ import { PerfilComponent } from './components/perfil/perfil.component';
       { path: 'login', component: LoginComponent },
       { path: 'registration', component: RegistrationComponent },
       { path: 'superlogin', component: SuperloginComponent },
-      { path: 'superregistration', component: SuperregistrationComponent },
-      { path: 'consejocom', component: ConsejosComponent },
+      { path: 'consejocom', component: ConsejosComponent , },
       { path: 'habitoscom', component: HabitosComponent },
       { path: 'salascom', component: SalasComponent },
       { path: 'salaschat', component: SalaschatComponent },

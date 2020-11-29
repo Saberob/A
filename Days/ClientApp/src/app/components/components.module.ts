@@ -25,7 +25,6 @@ import { Routes,RouterModule } from '@angular/router';
   ],
   exports: [
     SuperloginComponent,
-    SuperregistrationComponent,
     InicioComponent,
     SalaschatComponent,
     SalasComponent,

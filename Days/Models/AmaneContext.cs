@@ -1,4 +1,5 @@
 ﻿using System;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 
@@ -6,7 +7,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace Days.Models
 {
-    public partial class AmaneContext : DbContext
+    public partial class AmaneContext : IdentityDbContext<AplicationUser>
     {
         public AmaneContext()
         {
@@ -34,12 +35,14 @@ namespace Days.Models
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-                optionsBuilder.UseSqlServer("Server=DESKTOP-0K2F8FP\\SQLEXPRESS;Database=Amane;Trusted_Connection=True;");
+                optionsBuilder.UseSqlServer("Server=SABEROB-PC\\SQLEXPRESS;Database=Amane;Trusted_Connection=True;");
             }
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
+
             modelBuilder.Entity<Consejo>(entity =>
             {
                 entity.Property(e => e.ConsejoId).HasColumnName("ConsejoID");
