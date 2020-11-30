@@ -1,20 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Usuario\\source\\repos\\Days\\Days\\Days.csproj": {}
+    "C:\\Users\\Saberob\\Documents\\Repos\\days2\\Days\\Days.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Usuario\\source\\repos\\Days\\Days\\Days.csproj": {
+    "C:\\Users\\Saberob\\Documents\\Repos\\days2\\Days\\Days.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Usuario\\source\\repos\\Days\\Days\\Days.csproj",
+        "projectUniqueName": "C:\\Users\\Saberob\\Documents\\Repos\\days2\\Days\\Days.csproj",
         "projectName": "Days",
-        "projectPath": "C:\\Users\\Usuario\\source\\repos\\Days\\Days\\Days.csproj",
-        "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Usuario\\source\\repos\\Days\\Days\\obj\\",
+        "projectPath": "C:\\Users\\Saberob\\Documents\\Repos\\days2\\Days\\Days.csproj",
+        "packagesPath": "C:\\Users\\Saberob\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Saberob\\Documents\\Repos\\days2\\Days\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Usuario\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Saberob\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

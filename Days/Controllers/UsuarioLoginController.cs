@@ -1,4 +1,7 @@
 ﻿using Days.Models;
+using Days.Models.Request;
+using Days.Models.Response;
+using Days.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -9,19 +12,33 @@ using System.Threading.Tasks;
 namespace Days.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class UsuarioLoginController : ControllerBase
     {
+        private IUserService _userService;
 
-        [HttpGet]
-        public IEnumerable<UsuarioLogin> Get()
+        public UsuarioLoginController(IUserService userService)
         {
-            using (var context = new AmaneContext())
+            _userService = userService;
+        }
+
+        [HttpPost("login")]
+        public IActionResult Autentify([FromBody] AuthRequest model)
+        {
+            Response response = new Response();
+
+            var userResponse = _userService.Auth(model);
+
+            if(userResponse == null)
             {
-                return context.UsuarioLogins.ToList();
+                response.Exito = 0;
+                response.Mensaje = "Usuario o contraseña Incorrecto";
+                return BadRequest(response);
             }
 
-
+            response.Exito = 1;
+            response.Data = userResponse;
+            return Ok(model);
         }
     }
 }
