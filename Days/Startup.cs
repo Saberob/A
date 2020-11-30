@@ -1,4 +1,6 @@
+using Days.Models.Common;
 using Days.Services;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -6,6 +8,8 @@ using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 namespace Days
 {
@@ -28,6 +32,29 @@ namespace Days
                 configuration.RootPath = "ClientApp/dist";
             });
 
+            var appSettingsSection = Configuration.GetSection("AppSettings");
+            services.Configure<AppSettings>(appSettingsSection);
+            
+            // jwt
+            var appSetting = appSettingsSection.Get<AppSettings>();
+            var llave = Encoding.ASCII.GetBytes(appSetting.Secret);
+            services.AddAuthentication(d =>
+            {
+                d.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                d.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            }).AddJwtBearer(d =>
+            {
+                d.RequireHttpsMetadata = false;
+                d.SaveToken = true;
+                d.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
+                {
+                    ValidateIssuerSigningKey = true,
+                    IssuerSigningKey = new SymmetricSecurityKey(llave),
+                    ValidateIssuer = false,
+                    ValidateAudience = false
+                };
+            });
+            
             services.AddScoped<IUserService, UserService>();
         }
 
@@ -53,6 +80,9 @@ namespace Days
             }
 
             app.UseRouting();
+
+            app.UseAuthentication();
+            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
